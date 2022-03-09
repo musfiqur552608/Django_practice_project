@@ -1,0 +1,1 @@
+# Django_practice_project
