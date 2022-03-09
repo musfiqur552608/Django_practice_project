@@ -7,7 +7,7 @@ def home(request):
     return render(request, 'index.html')
 
 def about(request):
-    return HttpResponse("About")
+    return render(request, 'second.html')
 
 def add(request, a, b):
     return HttpResponse(a+b)
