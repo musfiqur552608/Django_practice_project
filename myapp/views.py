@@ -4,7 +4,7 @@ from django.http import HttpResponse, JsonResponse
 # Create your views here.
 
 def home(request):
-    return HttpResponse("Hi, Musfiqur")
+    return render(request, 'index.html')
 
 def about(request):
     return HttpResponse("About")
