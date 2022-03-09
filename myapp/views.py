@@ -22,8 +22,8 @@ def about(request):
     }
     return render(request, 'second.html', context = mydict)
 
-def add(request, a, b):
-    return HttpResponse(a+b)
+def image(request):
+    return render(request, 'image.html')
 
 def intro(request, name, age):
     mydict = {
