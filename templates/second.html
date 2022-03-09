@@ -9,4 +9,10 @@
     <li>{{i}}</li>
     {% endfor %}
 </ul>
+
+{% if check %}
+<h1>Your qualified, your age is {{age}}.</h1>
+{% else %}
+<h1>Your are not qualified, you are in under 18.</h1>
+{% endif %}
 {% endblock %}

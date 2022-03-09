@@ -10,11 +10,15 @@ def about(request):
     sad = "I am said."
     happy = "Please make me happy"
     list = ["Give me freedom", "All is well", "I love this", "I am happy"]
+    age = 23
+    check = age > 18
 
     mydict = {
         "sad" : sad,
         "happy" : happy,
         "list" : list,
+        "check" : check,
+        "age" : age,
     }
     return render(request, 'second.html', context = mydict)
 
