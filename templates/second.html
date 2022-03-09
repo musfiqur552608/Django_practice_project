@@ -2,4 +2,11 @@
 {% block title %} My Second Page {% endblock %}
 {% block content %}
 <h1>Hi Musfiq, you are in aboutpage.</h1>
+<h1>{{sad}}</h1>
+<h1>{{happy}}</h1>
+<ul>
+    {% for i in list %}
+    <li>{{i}}</li>
+    {% endfor %}
+</ul>
 {% endblock %}
