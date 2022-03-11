@@ -1,5 +1,7 @@
+import imp
 from django.shortcuts import render
 from django.http import HttpResponse, JsonResponse
+from .forms import *
 
 # Create your views here.
 
@@ -56,6 +58,28 @@ def submitform(request):
         "method" : request.method
     }
     return JsonResponse(dict)
+
+
+def dform(request):
+    if request.method == "POST":
+        form = FeedbackForm(request.POST)
+        if form.is_valid():
+            title = request.POST['title']
+            subject = request.POST['subject']
+            return HttpResponse("Form Submitted")
+        else:
+            dict = {
+            "form" : form
+            }
+            return render(request, 'dform.html', context=dict)
+    
+    elif request.method == "GET":
+        form = FeedbackForm()
+        dict = {
+            "form" : form
+        }
+        return render(request, 'dform.html', context=dict)
+
 
 
 

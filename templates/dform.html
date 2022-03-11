@@ -1,0 +1,13 @@
+{% extends 'index.html' %}
+{%load static %}
+{% block title %} My Django Form Page {% endblock %}
+{% block content %}
+<div class="col-md-6" style="margin:0 auto">
+    <form method="POST">
+        {% csrf_token %}
+        {{form.as_p}}
+        <button type="submit" class="btn btn-primary" style="margin: 1rem auto 0; display: block;">Submit</button>
+    </form>
+</div>
+
+{% endblock %}
