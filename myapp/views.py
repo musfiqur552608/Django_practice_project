@@ -45,4 +45,17 @@ def intro(request, name, age):
     return JsonResponse(mydict)
 
 
+def myform(request):
+    return render(request, 'myform.html')
+
+
+def submitform(request):
+    dict = {
+        "var1" : request.POST['mymail'],
+        "var2" : request.POST['mypass'],
+        "method" : request.method
+    }
+    return JsonResponse(dict)
+
+
 

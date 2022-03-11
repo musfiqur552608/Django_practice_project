@@ -7,4 +7,6 @@ urlpatterns = [
     path('images', views.images, name='images'),
     path('image/<str:imgname>', views.image, name='image'),
     path('intro/<str:name>/<int:age>', views.intro, name='intro'),
+    path('myform', views.myform, name='myform'),
+    path('submitform',views.submitform, name="submitform")
 ]

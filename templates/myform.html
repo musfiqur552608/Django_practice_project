@@ -1,0 +1,28 @@
+{% extends 'index.html' %}
+{%load static %}
+{% block title %} My Form Page {% endblock %}
+{% block content %}
+<h1 style="text-align: center; margin-top: 1rem;">My Form</h1>
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-6" style="margin: 0 auto;">
+            <form method="POST" action="{% url 'submitform' %}">
+                {% csrf_token %}
+                <div class="mb-3">
+                  <label for="mymail" class="form-label">Email address</label>
+                  <input type="email" class="form-control" id="mymail" name="mymail" aria-describedby="emailHelp">
+                  <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+                </div>
+                <div class="mb-3">
+                  <label for="mypass" class="form-label">Password</label>
+                  <input type="password" class="form-control" name="mypass" id="mypass">
+                </div>
+                <div class="mb-3">
+                    <button type="submit" class="btn btn-primary" style="margin: 0 auto; display: block;" >Submit</button>
+                </div>
+                
+              </form>
+        </div>
+    </div>
+</div>
+{% endblock %}
