@@ -22,8 +22,20 @@ def about(request):
     }
     return render(request, 'second.html', context = mydict)
 
-def image(request):
+def images(request):
     return render(request, 'image.html')
+
+def image(request, imgname):
+    image = str(imgname)
+    image = image.lower()
+    if image == "django":
+        var = True
+    elif image == "python":
+        var = False
+    dict = {
+        "var" : var
+    }
+    return render(request, 'image.html', context=dict)
 
 def intro(request, name, age):
     mydict = {
