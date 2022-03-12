@@ -66,12 +66,17 @@ def dform(request):
         if form.is_valid():
             title = request.POST['title']
             subject = request.POST['subject']
-            return HttpResponse("Form Submitted")
-        else:
             dict = {
-            "form" : form
+                "form" : FeedbackForm()
             }
-            return render(request, 'dform.html', context=dict)
+            if title != title.upper():
+                dict["error"] = True 
+                dict["errormsg"] = "Title should be in capital letter"
+                return render(request, 'dform.html', context=dict)
+            else:
+                dict["success"] = True
+                dict["successmsg"] = "Form Submitted"
+                return render(request, 'dform.html', context=dict)
     
     elif request.method == "GET":
         form = FeedbackForm()
