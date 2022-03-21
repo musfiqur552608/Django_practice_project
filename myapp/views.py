@@ -66,17 +66,30 @@ def dform(request):
         if form.is_valid():
             title = request.POST['title']
             subject = request.POST['subject']
+            email = request.POST['email']
             dict = {
                 "form" : FeedbackForm()
             }
+            errorflag = False
+            Errors = []
             if title != title.upper():
-                dict["error"] = True 
-                dict["errormsg"] = "Title should be in capital letter"
-                return render(request, 'dform.html', context=dict)
-            else:
+                errorflag = True
+                errormsg = "Title should be in Capital"
+                Errors.append(errormsg)
+            import re
+            regex = '^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$'
+            if not re.search(regex,email):
+                errorflag = True
+                errormsg = "Not a Valid Email address"
+                Errors.append(errormsg)
+            if errorflag != True:
                 dict["success"] = True
                 dict["successmsg"] = "Form Submitted"
-                return render(request, 'dform.html', context=dict)
+            
+            dict["error"] = errorflag
+            dict["errors"] = Errors
+
+            return render(request, 'dform.html', context=dict)
     
     elif request.method == "GET":
         form = FeedbackForm()
