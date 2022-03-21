@@ -4,6 +4,8 @@ from django.http import HttpResponse, JsonResponse
 from .forms import *
 
 # Create your views here.
+def error_404_view(request, exception):
+    return render(request, '404.html')
 
 def home(request):
     return render(request, 'index.html')
